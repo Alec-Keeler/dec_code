@@ -62,3 +62,59 @@ VALUES
     ('This game is far too long!', 5),
     ('My friends and I really like this game, lots of replayability', 6),
     ('I can be a space pirate, favorite game hands down.', 5);
+
+-- Task 4a
+-- SELECT * FROM boardgames;
+
+-- Task 4b
+-- SELECT name FROM boardgames;
+
+-- Task 4c
+-- SELECT name, category 
+-- FROM boardgames
+-- WHERE category = 'Strategy';
+
+-- Task 4d
+-- SELECT name, avg_rating
+-- FROM boardgames
+-- WHERE avg_rating BETWEEN 8.3 AND 8.7;
+
+-- Task 4e
+-- SELECT name, max_players, (avg_rating * 10) AS percentage
+-- FROM boardgames
+-- WHERE max_players > 4;
+
+-- Task 4f
+-- SELECT name
+-- FROM boardgames
+-- WHERE category IN ('Strategy', 'Adventure')
+-- ORDER BY category DESC;
+
+-- Task 4g
+-- SELECT id, name, category, avg_rating
+-- FROM boardgames
+-- WHERE category NOT IN ('Strategy', 'Adventure')
+-- AND avg_rating > 8.5
+-- ORDER BY name DESC
+-- LIMIT 2;
+
+-- Task 4h
+-- SELECT content
+-- FROM reviews
+-- WHERE content ILIKE 't%';
+
+-- Task 5a
+-- UPDATE players
+-- SET prefers_video_games = true
+-- WHERE name = 'Alec';
+
+-- UPDATE players
+-- SET prefers_video_games = true
+-- WHERE name IN ('Alec', 'Rawaha');
+
+-- UPDATE boardgames
+-- SET name = name || ' (Game of the year sponsored by Mountain Dew)';
+
+-- Task 5b
+-- DELETE FROM boardgames
+-- WHERE id = 3;

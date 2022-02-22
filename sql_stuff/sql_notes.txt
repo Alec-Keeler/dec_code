@@ -1,0 +1,22 @@
+postgres commands
+
+psql - log into postgres
+    psql <databaseName> <userName>
+\l - lists our database
+\du - lists our users
+\dt - list of tables on current database
+\c <databaseName> - connect to named database
+\d <tableName> - disply the table details
+
+
+DB project set up steps
+1. Create a user
+    CREATE USER username WITH SUPERUSER;
+2. Create a database with that user as the owner
+    CREATE DATABASE databasename WITH OWNER username;
+3. Create tables for the database
+    CREATE TABLE tablename (
+        id SERIAL PRIMARY KEY,
+        colName dataType constraints
+    );
+4. Insert data into those tables

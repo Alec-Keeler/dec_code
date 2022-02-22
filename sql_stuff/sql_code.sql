@@ -1,5 +1,6 @@
 -- Task 2d
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS lfg;
 DROP TABLE IF EXISTS boardgames;
 DROP TABLE IF EXISTS players;
 
@@ -118,3 +119,38 @@ VALUES
 -- Task 5b
 -- DELETE FROM boardgames
 -- WHERE id = 3;
+
+-- Task 6a
+-- SELECT * 
+-- FROM boardgames
+-- JOIN reviews ON (boardgames.id = reviews.boardgame_id)
+-- WHERE boardgames.name = 'Pandemic Legacy: Season 1';
+
+-- Task 6b
+CREATE TABLE lfg (
+    id SERIAL PRIMARY KEY,
+    game_id INTEGER,
+    player_id INTEGER,
+    FOREIGN KEY (game_id) REFERENCES boardgames,
+    FOREIGN KEY (player_id) REFERENCES players
+);
+
+INSERT INTO lfg (player_id, game_id)
+VALUES
+    (1, 5),
+    (1, 2),
+    (3, 1),
+    (5, 5),
+    (2, 2),
+    (4, 4),
+    (6, 4),
+    (1, 4);
+
+-- Task 6c
+-- Terraforming Mars
+
+SELECT boardgames.name, boardgames.id, lfg.game_id, lfg.player_id, players.id, players.name 
+FROM boardgames
+JOIN lfg ON (boardgames.id = lfg.game_id)
+JOIN players ON (lfg.player_id = players.id)
+WHERE boardgames.name = 'Terraforming Mars';

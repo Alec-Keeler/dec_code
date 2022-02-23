@@ -149,8 +149,60 @@ VALUES
 -- Task 6c
 -- Terraforming Mars
 
-SELECT boardgames.name, boardgames.id, lfg.game_id, lfg.player_id, players.id, players.name 
-FROM boardgames
-JOIN lfg ON (boardgames.id = lfg.game_id)
-JOIN players ON (lfg.player_id = players.id)
-WHERE boardgames.name = 'Terraforming Mars';
+-- SELECT boardgames.name, boardgames.id, lfg.game_id, lfg.player_id, players.id, players.name 
+-- FROM boardgames
+-- JOIN lfg ON (boardgames.id = lfg.game_id)
+-- JOIN players ON (lfg.player_id = players.id)
+-- WHERE boardgames.name = 'Terraforming Mars';
+
+-- Task 7a
+-- SELECT boardgames.name FROM boardgames
+-- JOIN reviews ON (boardgames.id = reveiws.boardgame_id)
+-- WHERE reviews.content ILIKE 't%';
+
+
+-- SELECT boardgame_id FROM reviews
+-- WHERE reviews.content ILIKE 't%'
+
+-- SELECT name FROM boardgames
+-- WHERE boardgames.id IN (
+--     SELECT boardgame_id FROM reviews
+--     WHERE reviews.content ILIKE 't%'
+-- );
+
+
+-- Task 7a
+-- SELECT boardgames.name, boardgames.id, lfg.game_id, lfg.player_id, players.id, players.name 
+-- FROM boardgames
+-- JOIN lfg ON (boardgames.id = lfg.game_id)
+-- JOIN players ON (lfg.player_id = players.id)
+-- WHERE boardgames.name = 'Terraforming Mars';
+
+-- SELECT boardgames.id FROM boardgames
+-- WHERE boardgames.name = 'Terraforming Mars'
+
+-- SELECT lfg.player_id FROM lfg
+-- WHERE game_id = (
+--     SELECT boardgames.id FROM boardgames
+--     WHERE boardgames.name = 'Terraforming Mars'
+-- )
+
+-- SELECT players.name FROM players
+-- WHERE players.id IN (
+--     SELECT lfg.player_id FROM lfg
+--     WHERE game_id = (
+--         SELECT boardgames.id FROM boardgames
+--         WHERE boardgames.name = 'Terraforming Mars'
+--     )
+-- );
+
+-- Task 7b
+SELECT fave_category FROM players
+WHERE players.name = 'Rawaha'
+
+SELECT boardgames.name FROM boardgames
+WHERE category = (
+    SELECT fave_category FROM players
+    WHERE players.name = 'Rawaha'
+);
+

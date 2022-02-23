@@ -1,0 +1,25 @@
+{
+  "name": "dec_code",
+  "version": "1.0.0",
+  "description": "The code from December 2021 cohort's mod 4 code demos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alec-Keeler/dec_code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alec-Keeler/dec_code/issues"
+  },
+  "homepage": "https://github.com/Alec-Keeler/dec_code#readme",
+  "dependencies": {
+    "pg": "^8.7.3",
+    "sequelize": "^5.22.5",
+    "sequelize-cli": "^5.5.1"
+  }
+}

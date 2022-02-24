@@ -24,6 +24,22 @@ module.exports = {
           password: 'hunter12',
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          name: 'bakeaway123',
+          faveBread: 'pizza',
+          email: 'ilovebread@stuff.gov',
+          password: 'pizzaisbread',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'wut',
+          faveBread: null,
+          email: 'breadislame@gmail.com',
+          password: 'password!',
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ]);
   },

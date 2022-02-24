@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.Post, { foreignKey: 'userId' })
+    User.hasMany(models.Post, { foreignKey: 'userId', hooks: true, onDelete: 'CASCADE' })
     User.belongsToMany(models.Subbreaddit, {
       through: 'Subscription',
       foreignKey: 'userId',

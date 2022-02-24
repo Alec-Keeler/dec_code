@@ -30,3 +30,13 @@ Step 7 Seed data
     npx sequelize seed:generate --name userSeeds
     npx sequelize db:seed:all
     npx sequelize db:seed:undo:all
+
+
+Query methods
+create
+build
+save - build/update
+findByPk
+findOne
+findAll
+destroy

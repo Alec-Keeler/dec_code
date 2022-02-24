@@ -21,6 +21,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Users' }
       },
+      subId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Subbreaddits' }
+      },
       imgLink: {
         type: Sequelize.TEXT
       },

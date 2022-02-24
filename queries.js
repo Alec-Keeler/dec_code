@@ -33,4 +33,41 @@ async function buildPost(title, content, userId, subId) {
     sequelize.close()
 }
 
-buildPost('This is a good post', 'this is a post that is totaly a valubale addition to this website', 5, 1)
+// buildPost('This is a good post', 'this is a post that is totaly a valubale addition to this website', 5, 1)
+
+// Task 13a
+async function findUserByPk(userId) {
+    const user = await User.findByPk(userId)
+
+    console.log(user)
+
+    sequelize.close()
+}
+
+// findUserByPk(5)
+
+// Task 13b
+async function getAllPosts() {
+    const posts = await Post.findAll()
+
+    console.log(posts[0].title)
+
+    sequelize.close()
+}
+
+// getAllPosts()
+
+// Task 13c
+async function findUserByEmail(email) {
+    const user = await User.findOne({
+        where: {
+            email: email
+        }
+    })
+
+    console.log(user)
+
+    sequelize.close()
+}
+
+// findUserByEmail('bread@aioli.com')

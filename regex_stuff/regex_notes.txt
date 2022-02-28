@@ -1,19 +1,19 @@
-* - 0 or more
-? - 0 or 1
-+ - 1 or more
-\ - escape next character
-. - ANY character
-^ - start of input
-$ - end of input
-[] - list of possible matches
-() - group of characters
-[a-zA-Z] - range of characters
-[^] - NOT what is in the brackets
-{} - denote a specific number or range of characters ( \d{3, 4} ) - matches 3 or 4 digit characters
+* => 0 or more
+? => 0 or 1
++ => 1 or more
+\ => escape next character
+. => ANY character
+^ => start of input
+$ => end of input
+[] => list of possible matches
+() => group of characters
+[a-zA-Z] => range of characters
+[^] => NOT what is in the brackets
+{} => denote a specific number or range of characters ( \d{3, 4} ) - matches 3 or 4 digit characters
 
-\w - any letter, digit, _
-\d - any digit
-\s - any whitespace character
+\w => any letter, digit, _
+\d => any digit
+\s => any whitespace character
 
 Exp1 ^[a-zA-Z]+\d{1}$
 

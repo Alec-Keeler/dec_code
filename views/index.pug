@@ -1,0 +1,11 @@
+head
+    title Breaddit
+body
+    h1= header 
+    div(class='someClass' id=`id-${header}`) This is the index page
+    .otherClass.anotherClass#anotherId This is another div
+    each user in users
+        p= user.name
+        p= user.faveBread 
+        p= user.email 
+        p= user.password

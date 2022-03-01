@@ -29,6 +29,22 @@ app.use('/users', usersRouter)
 //     res.render('index', {header: 'Profile Page', users: [user]})
 // })
 
+// Task 22b
+app.get(/^\/star[(wars)(trek)]?/, (req, res) => {
+    res.send('This is a star wars or star trek page')
+})
+
+// Task 22a
+app.all('*', (req, res) => {
+    res.send('This is a custom 404 message')
+})
+
+// Task 22c (regex tests)
+// --pass
+// /users, /about, /foo, /about-foo, /about_foo
+// --fail
+// /users/1, /about/foo, /anything/anythingelse
+
 // Task 17b
 const port = 8080;
 app.listen(port, () => console.log(`Listening on port ${port}`))

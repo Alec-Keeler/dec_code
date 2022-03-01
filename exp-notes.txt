@@ -1,0 +1,12 @@
+Steps for setting up an Express app (With Pug!)
+
+Install packages
+    express
+    pug
+    nodemon
+
+Create primary app file (app.js)
+    import express
+    use express to create app
+    tell the app to listen to a port
+        app.listen

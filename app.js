@@ -2,6 +2,7 @@ const express = require('express');
 const { User } = require('./models');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
+const cookieParser = require('cookie-parser');
 // Task 17a
 const app = express();
 // Task 19a
@@ -20,6 +21,8 @@ app.use((req, res, next) => {
 
 // Task 28a
 app.use(express.urlencoded({extended: false}))
+// Task 28b
+app.use(cookieParser())
 
 // Task 21b
 app.use('/users', usersRouter)

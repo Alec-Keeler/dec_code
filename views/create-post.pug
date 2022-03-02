@@ -2,7 +2,11 @@ extends layout.pug
 include utils.pug
 block content
     h1 Create a new post!
+    if errors.length
+        each err in errors
+            p= err
     form(action="/posts" method="post") 
+        input(type="hidden" name='_csrf' value=csrfToken)
         label(for="title") Title:
         input(type="text" name='title' required)
         label(for="content") Post Content:

@@ -24,3 +24,12 @@ Methods on response object
     render
     json
     redirect
+
+csrfProtection
+
+    node packages:
+        csurf
+        cookie-parser
+
+    apply cookie-parser middleware
+    create csrfProtection middleware

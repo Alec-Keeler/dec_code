@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     // res.send('Hello from Breaddit')
     // Task 20a
     const users = await User.findAll()
+    console.log('is banana true?', req.banana)
     // Task 19c
     res.render('index', { header: 'Welcome to Breaddit!', users, title: 'Breaddit Users' })
 })

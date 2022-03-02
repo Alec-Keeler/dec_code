@@ -12,10 +12,20 @@ app.set('view engine', 'pug');
 const path = require('path')
 app.use(express.static(path.join(__dirname, './public')))
 
+// Task 27a
+app.use((req, res, next) => {
+    req.banana = true
+    next()
+})
+
+// Task 28a
+app.use(express.urlencoded({extended: false}))
+
 // Task 21b
 app.use('/users', usersRouter)
 // app.use('/banana', usersRouter)
 app.use('/posts', postsRouter)
+
 
 // // Task 18
 // // Task 20a

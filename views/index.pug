@@ -1,11 +1,16 @@
-head
-    title Breaddit
-body
+extends layout.pug
+block content
+    include utils.pug
     h1= header 
     div(class='someClass' id=`id-${header}`) This is the index page
     .otherClass.anotherClass#anotherId This is another div
-    each user in users
-        p= user.name
-        p= user.faveBread 
-        p= user.email 
-        p= user.password
+    table
+        thead
+            tr
+                th Name
+                th Favorite Bread
+                th Email
+                th Password
+        tbody
+            each user in users
+                +userRow(user)

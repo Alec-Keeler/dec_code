@@ -1,14 +1,21 @@
 const express = require('express');
 const { User } = require('./models');
 const usersRouter = require('./routes/users');
+const postsRouter = require('./routes/posts');
 // Task 17a
 const app = express();
-
 // Task 19a
 app.set('view engine', 'pug');
+
+// Task 23
+// app.use(express.static('./public'))
+const path = require('path')
+app.use(express.static(path.join(__dirname, './public')))
+
 // Task 21b
 app.use('/users', usersRouter)
 // app.use('/banana', usersRouter)
+app.use('/posts', postsRouter)
 
 // // Task 18
 // // Task 20a

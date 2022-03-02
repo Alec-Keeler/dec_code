@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     // Task 20a
     const users = await User.findAll()
     // Task 19c
-    res.render('index', { header: 'Welcome to Breaddit!', users })
+    res.render('index', { header: 'Welcome to Breaddit!', users, title: 'Breaddit Users' })
 })
 
 // Task 20c

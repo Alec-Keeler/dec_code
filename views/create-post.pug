@@ -1,0 +1,18 @@
+extends layout.pug
+include utils.pug
+block content
+    h1 Create a new post!
+    form(action="/posts" method="post") 
+        label(for="title") Title:
+        input(type="text" name='title' required)
+        label(for="content") Post Content:
+        textarea(name='content' required)
+        label(for="userId") Your User Id: 
+        input(type="number" name='userId' required)
+        label(for="imgLink") Optional Image Link:
+        input(type="text" name="imgLink")
+        label(for="subId") Subbreaddit:
+        select(name="subId") 
+            each sub in subs
+                option(value=sub.id)= sub.name
+        button Create Post

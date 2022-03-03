@@ -55,8 +55,24 @@ app.get(/^\/star[(wars)(trek)]?/, (req, res) => {
 })
 
 // Task 22a
-app.all('*', (req, res) => {
-    res.send('This is a custom 404 message')
+// app.all('*', (req, res) => {
+//     res.send('This is a custom 404 message')
+// })
+
+// Task 31a
+app.use((req, res, next) => {
+    console.log('404 handler')
+    const err = new Error('Page not found')
+    next(err)
+})
+
+app.use((req, res, next) => {
+    console.log('errors should not be here')
+})
+
+// Task 31b
+app.use((err, req, res, next) => {
+    console.log('this is our error handler')
 })
 
 // Task 22c (regex tests)

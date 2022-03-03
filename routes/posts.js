@@ -33,10 +33,12 @@ const titleCheck = async(req, res, next) => {
 }
 
 // Task 26a
-router.get('/', csrfProtection, async(req, res) => {
+router.get('/', csrfProtection, async(req, res, next) => {
     const subs = await Subbreaddit.findAll()
-    console.log('Is banana?', req.banana)
-    console.log('Is potato?', req.potato)
+    // console.log('Is banana?', req.banana)
+    // console.log('Is potato?', req.potato)
+    // const err = new Error('Something crazy happened')
+    // next(err)
     res.render('create-post', {title: 'Breaddit - Create Post', subs, errors: [], csrfToken: req.csrfToken()})
 })
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const { User } = require('./models');
+const { User } = require('./db/models');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const cookieParser = require('cookie-parser');
@@ -66,5 +66,7 @@ app.all('*', (req, res) => {
 // /users/1, /about/foo, /anything/anythingelse
 
 // Task 17b
-const port = 8080;
-app.listen(port, () => console.log(`Listening on port ${port}`))
+// const port = 8080;
+// app.listen(port, () => console.log(`Listening on port ${port}`))
+
+module.exports = app;

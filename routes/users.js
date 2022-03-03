@@ -1,7 +1,7 @@
 // Task 21a
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User } = require('../db/models');
 
 // Task 18
 // Task 20a

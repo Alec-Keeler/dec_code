@@ -71,9 +71,10 @@ app.use((req, res, next) => {
 })
 
 // Task 31b
-app.use((err, req, res, next) => {
-    console.log('this is our error handler')
-})
+// app.use((err, req, res, next) => {
+//     console.log('this is our error handler')
+//     console.log(err.message)
+// })
 
 // Task 22c (regex tests)
 // --pass

@@ -1,5 +1,5 @@
 // Task 12a
-const { User, Post, Subbreaddit, sequelize, Sequelize: { Op } } = require('./models');
+const { User, Post, Subbreaddit, sequelize, Sequelize: { Op } } = require('./db/models');
 
 // Task 12b
 async function createUser(name, faveBread, email, password) {
@@ -122,7 +122,7 @@ async function getPostsBySearch(term) {
 // Task 13g
 async function getPostsAndOrder() {
     const posts = await Post.findAll({
-        order: [['subId', 'DESC'], ['userId']],
+        order: [['subId', 'DESC']],
         limit: 3,
         raw: true
     })
@@ -132,7 +132,7 @@ async function getPostsAndOrder() {
     sequelize.close()
 }
 
-// getPostsAndOrder()
+getPostsAndOrder()
 
 // Task 14a
 async function editPost(newContent, postId) {

@@ -88,8 +88,8 @@ router.post('/login', csrfProtection, async(req, res) => {
         res.redirect('/users')
     } else {
         req.errors.push('Account validation failed.  Please Try again.')
+        res.render('login', { csrfToken: req.csrfToken(), errors: req.errors, user: {email}})
     }
-    res.render('login', { csrfToken: req.csrfToken(), errors: req.errors, user: {email}})
 })
 
 module.exports = router;

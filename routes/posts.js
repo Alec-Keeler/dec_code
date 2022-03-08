@@ -5,6 +5,8 @@ const { Post, Subbreaddit } = require('../db/models');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true})
 
+const authCheck = require('./utils');
+
 // Task 32b
 const asyncHandler = (handler) => {
     return (req, res, next) => {
@@ -42,20 +44,21 @@ const titleCheck = async(req, res, next) => {
 }
 
 // Task 26a
-router.get('/', csrfProtection, async(req, res, next) => {
+router.get('/', csrfProtection, authCheck, async(req, res, next) => {
     const subs = await Subbreaddit.findAll()
     // console.log('Is banana?', req.banana)
     // console.log('Is potato?', req.potato)
     // const err = new Error('Something crazy happened')
     // next(err)
+    console.log(req.session)
     res.render('create-post', {title: 'Breaddit - Create Post', subs, errors: [], csrfToken: req.csrfToken()})
 })
 
 // Task 26c
 router.post('/', [errorArr, titleCheck], csrfProtection, asyncHandler(async(req, res, next) => {
     console.log(req.body)
-    const { title, content, subId, userId, imgLink } = req.body;
-
+    const { title, content, subId, imgLink } = req.body;
+    const userId = req.session.user.userId
     if (req.errors.length < 1) {
         // try {
             const post = await Post.create({

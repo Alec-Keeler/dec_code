@@ -22,7 +22,20 @@ app.use((req, res, next) => {
 // Task 28a
 app.use(express.urlencoded({extended: false}))
 // Task 28b
-app.use(cookieParser())
+app.use(cookieParser('astrongpassword'))
+
+// Task 35a
+const session = require('express-session');
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: 'astrongpassword'
+}))
+
+// app.use((req, res, next) => {
+//     req.session.test = true
+//     next()
+// })
 
 // Task 21b
 app.use('/users', usersRouter)

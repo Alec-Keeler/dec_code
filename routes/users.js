@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const { User, Post } = require('../db/models');
 const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true })
+const csrfProtection = csrf({ cookie: true });
+const bcrypt = require('bcryptjs');
 
 // Task 18
 // Task 20a
@@ -61,9 +62,10 @@ router.post('/signup', csrfProtection, signUpValidator, async(req, res) => {
             // },
          })
     } else {
-        //Perform password hashing before createing the user
+        //Perform password hashing before creating the user
+        const hashedPassword = await bcrypt.hash(password, 10)
         const user = await User.create({
-            name, faveBread, email, password
+            name, faveBread, email, hashedPassword
         })
         res.redirect('/users')
     }
@@ -85,7 +87,13 @@ router.post('/login', csrfProtection, async(req, res) => {
     })
     if (user) {
         //Fill out with password hashing
-        res.redirect('/users')
+        const isPass = await bcrypt.compare(password, user.hashedPassword)
+        if (isPass) {
+            res.redirect('/users')
+        } else {
+            req.errors.push('Account validation failed.  Please Try again.')
+            res.render('login', { csrfToken: req.csrfToken(), errors: req.errors, user: { email } })
+        }
     } else {
         req.errors.push('Account validation failed.  Please Try again.')
         res.render('login', { csrfToken: req.csrfToken(), errors: req.errors, user: {email}})

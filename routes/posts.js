@@ -46,7 +46,11 @@ const titleCheck = async(req, res, next) => {
 // Task 37
 router.get('/', async(req, res) => {
     const posts = await Post.findAll();
-    res.render('posts', {posts})
+    let activeUser;
+    if (req.session.user) {
+        activeUser = req.session.user.userId
+    }
+    res.render('posts', {posts, activeUser})
 })
 
 // Task 26a
@@ -89,5 +93,6 @@ router.get('/:id(\\d+)', async(req, res) => {
     const post = await Post.findByPk(req.params.id)
     res.render('single-post', {post})
 });
+
 
 module.exports = router;

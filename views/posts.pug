@@ -5,5 +5,5 @@ block content
         each post in posts
             div(class='post-container' id=`post-container-${post.id}`)
                 h3= post.title
-                p= post.content
+                p(id=`post-content-${post.id}`)= post.content
                 a(href=`/posts/${post.id}`) Take Me To This Post!

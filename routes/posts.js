@@ -94,7 +94,9 @@ router.get('/:id(\\d+)', async(req, res) => {
     res.render('single-post', {post})
 });
 
+// Task 38
 router.delete('/:id(\\d+)', async(req, res) => {
+    console.log('you have arrived at the route handler')
     const post = await Post.findByPk(req.params.id)
 
     if (post) {

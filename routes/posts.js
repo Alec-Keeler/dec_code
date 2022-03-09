@@ -107,5 +107,22 @@ router.delete('/:id(\\d+)', async(req, res) => {
     }
 })
 
+// Task 39
+router.patch('/:id(\\d+)', async(req, res) => {
+    const post = await Post.findByPk(req.params.id)
+
+    if (!(req.body.content.length > 1)) {
+        res.json({message: "Please provide a valid update"})
+    }
+
+    if (post) {
+        post.content = req.body.content
+        await post.save()
+        res.json({message: "Success", post})
+    } else {
+        res.json({message: "Could not find post please try again"})
+    }
+})
+
 
 module.exports = router;

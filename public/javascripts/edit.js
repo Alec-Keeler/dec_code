@@ -19,10 +19,23 @@ for (let i = 0; i < editBtns.length; i++) {
             console.log('submit', postId)
 
             // query the dom for the input field's value
+            const contentData = document.getElementById(`content-field-${postId}`).value
+
             // send a PATCH fetch request with the content in the body
+            const res = await fetch(`/posts/${postId}`, {
+                method: 'PATCH',
+                body: JSON.stringify({content: contentData}),
+                headers: { 'Content-Type': 'application/json' }
+            })
             // await the response
+            const returnData = await res.json()
             // if we get a Success response, the original post element should be updated
-            // reapply hidden class to form
+            if (returnData.message === "Success") {
+                const postEle = document.getElementById(`post-content-${postId}`)
+                postEle.innerHTML = returnData.post.content
+                // reapply hidden class to form
+                form.classList.add('hidden')
+            }
         })
     })
 }

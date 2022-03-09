@@ -1,0 +1,7 @@
+extends layout.pug 
+
+block content
+    div(class='post-container' id=`post-container-${post.id}`)
+        h3= post.title
+        p= post.content
+        a(href=`/posts/${post.id}`) Take Me To This Post!

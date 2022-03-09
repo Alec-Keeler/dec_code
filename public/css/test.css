@@ -1,3 +1,7 @@
 .someClass {
     background-color: blue;
 }
+
+.post-container {
+    border: 1px solid black;
+}

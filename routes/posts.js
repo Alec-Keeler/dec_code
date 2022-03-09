@@ -43,8 +43,14 @@ const titleCheck = async(req, res, next) => {
     
 }
 
+// Task 37
+router.get('/', async(req, res) => {
+    const posts = await Post.findAll();
+    res.render('posts', {posts})
+})
+
 // Task 26a
-router.get('/', csrfProtection, authCheck, async(req, res, next) => {
+router.get('/new', csrfProtection, authCheck, async(req, res, next) => {
     const subs = await Subbreaddit.findAll()
     // console.log('Is banana?', req.banana)
     // console.log('Is potato?', req.potato)
@@ -78,4 +84,10 @@ router.post('/', [errorArr, titleCheck], csrfProtection, asyncHandler(async(req,
     }
 
 }))
+
+router.get('/:id(\\d+)', async(req, res) => {
+    const post = await Post.findByPk(req.params.id)
+    res.render('single-post', {post})
+});
+
 module.exports = router;

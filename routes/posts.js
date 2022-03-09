@@ -94,5 +94,16 @@ router.get('/:id(\\d+)', async(req, res) => {
     res.render('single-post', {post})
 });
 
+router.delete('/:id(\\d+)', async(req, res) => {
+    const post = await Post.findByPk(req.params.id)
+
+    if (post) {
+        await post.destroy();
+        res.json({message: "Success"})
+    } else {
+        res.json({message: "Failure"})
+    }
+})
+
 
 module.exports = router;

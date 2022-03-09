@@ -3,7 +3,8 @@ html
         title= title
         link(rel="stylesheet", href="/css/test.css")
         <link rel="icon" type="image/png" href="https://icons-for-free.com/iconfiles/png/512/bread+bread+loaf+food+toast+icon-1320168012160404253.png"/>
-        script(src="/javascripts/edit.js" type="module") 
+        //- script(src="/javascripts/edit.js" type="module") 
+        script(src="/javascripts/delete.js" type="module") 
     body
         nav
             ul 
@@ -12,6 +13,7 @@ html
                 li: a(href="/posts") See All Posts
                 li: a(href="/users/signup") Sign Up!
                 li: a(href="/users/login") Log In!
+                li: a(href="/users/logout") Log Out!
         block content
         footer
             div About the Developers

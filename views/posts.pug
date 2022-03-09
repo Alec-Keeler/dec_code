@@ -7,3 +7,5 @@ block content
                 h3= post.title
                 p(id=`post-content-${post.id}`)= post.content
                 a(href=`/posts/${post.id}`) Take Me To This Post!
+                if activeUser === post.userId
+                    button(class='delete-btn' id=`delete-post-${post.id}`) Delete
